@@ -1,0 +1,17 @@
+<!-- templates/quantify_form.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quantify Form</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Update Quantify,Create Quantify" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'quantify_list' %}">Back to list</a>
+</body>
+</html>

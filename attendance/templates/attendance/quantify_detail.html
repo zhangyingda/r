@@ -1,0 +1,41 @@
+<!-- templates/quantify_list.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quantify List</title>
+</head>
+<body>
+    <h1>Quantify List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Student</th>
+                <th>Grade</th>
+                <th>Class</th>
+                <th>Period</th>
+                <th>Reason</th>
+                <th>Score</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for quantify in quantifies %}
+            <tr>
+                <td>{{ quantify.timestamp }}</td>
+                <td>{{ quantify.student.name }}</td>
+                <td>{{ quantify.student.grade.name }}</td>
+                <td>{{ quantify.student.class_name.name }}</td>
+                <td>{{ quantify.period.name }}</td>
+                <td>{{ quantify.reason }}</td>
+                <td>{{ quantify.score }}</td>
+                <td>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'quantify_create' %}">Add New Quantify</a>
+</body>
+</html>

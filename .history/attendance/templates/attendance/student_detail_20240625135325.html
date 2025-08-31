@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>学生详情</title>
+</head>
+<body>
+    <h1>{{ student.name }}</h1>
+    <p>学号: {{ student.student_id }}</p>
+    <p>性别: {{ student.gender }}</p>
+    <p>年级: {{ student.grade }}</p>
+    <p>班级: {{ student.class_name }}</p>
+    <p>宿舍号: {{ student.dorm_number }}</p>
+    <p>床铺号: {{ student.bed_number }}</p>
+
+    <h2>出勤记录</h2>
+    <ul>
+        {% for event in events %}
+        <li>{{ event.timestamp }} - {{ event.status }} - 记录人: {{ event.recorded_by }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_teacher %}
+    <a href="{% url 'record_event' student.student_id %}">记录事件</a>
+    {% endif %}
+</body>
+</html>
